@@ -11,6 +11,7 @@ class Product extends Model
     public $table = 'product';
     public $fillable = ['Nama', 'Harga', 'stock', 'Berat', 'Gambar', 'Kondisi', 'Deskripsi'];
     public $timestamps = false;
+    
 }
 
 

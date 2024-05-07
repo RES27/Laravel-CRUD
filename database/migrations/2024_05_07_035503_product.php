@@ -13,6 +13,8 @@ return new class extends Migration
     {
         schema::create('product',function(Blueprint $table){
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('profil_id');
             $table->string('Nama');
             $table->integer('Harga');
             $table->integer('stock');
@@ -20,6 +22,10 @@ return new class extends Migration
             $table->text('Gambar');
             $table->enum('Kondisi',['Baru','Bekas']);
             $table->text('Deskripsi');
+
+
+            $table->foreign('profil_id')->references('id')->on('profil');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
