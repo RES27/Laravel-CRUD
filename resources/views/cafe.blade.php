@@ -17,8 +17,12 @@
             <div class="mt-3 bg-dark mx-auto rounded" style="height: 3px;width: 75px"></div>
             <div class="d-flex justify-content-between my-2">
                 <button type="button" class="btn btn-success" >
-                    <a href="{{ route('list') }}" style="text-decoration: none; color: inherit; ">Kembali Ke List product</a>
+                    <a href="{{ route('list-id1') }}" style="text-decoration: none; color: inherit; ">User 1</a>
                 </button>
+                <button type="button" class="btn btn-success" >
+                    <a href="{{ route('list-id2') }}" style="text-decoration: none; color: inherit; ">user 2</a>
+                </button>
+
             </div>
             <div class="grid mx-3 mt-4">
                 <div class="row row-gap-4">

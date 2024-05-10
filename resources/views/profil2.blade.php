@@ -15,7 +15,7 @@
             <div class="mt-3 bg-dark mx-auto rounded" style="height: 3px;width: 75px"></div>
             <div class="d-flex justify-content-between my-2">
                 <button type="button" class="btn btn-success" >
-                    <a href="{{ route('list-id1') }}" style="text-decoration: none; color: inherit; ">Kembali Ke List product</a>
+                    <a href="{{ route('list-id2') }}" style="text-decoration: none; color: inherit; ">Kembali Ke List product</a>
                 </button>
             </div>
             <div class="row">

@@ -11,8 +11,14 @@ class CafeController extends Controller
 {
     public function index (){
         $dabar = DB::table('product')->get();
-
         return view('cafe', compact('dabar'));
-
     }
+
+    // public function show(Request $id )
+    // {
+    //     $list = Product::find($id);
+    //     // $user = User::find($id);
+    //     return view('list-product', compact('list'));
+    // }
+
 }

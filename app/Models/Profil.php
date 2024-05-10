@@ -11,6 +11,7 @@ class Profil extends Model
     protected $table = 'profil';
     protected $fillable = ['Nama','Email','Jenis_Kelamin','Alamat','Role'];
     public $timestamps = false;
+
     public function user(){
         return $this->belongsTo(User::class);
     }

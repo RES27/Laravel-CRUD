@@ -31,6 +31,8 @@ class formController extends Controller
         }
 
         $data = DB::table('product')->insert([
+            'id' => 3,
+            'id_user' => 3,
             'Nama' => $req->name,
             'Harga' => $req->harga,
             'stock' => $req->stok,

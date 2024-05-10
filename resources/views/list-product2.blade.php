@@ -26,6 +26,9 @@
                 <button type="button" class="btn btn-success" >
                     <a href="{{ route('form') }}" style="text-decoration: none; color: inherit; ">Tambah Product</a>
                 </button>
+                <button type="button" class="btn btn-success" >
+                    <a href="{{ route('profil-id2') }}" style="text-decoration: none; color: inherit; ">profil</a>
+                </button>
             </div>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -43,7 +46,7 @@
                     @php
                     $no = 1;
                     @endphp
-                    @foreach ($user as $post)
+                    @foreach ($list as $post)
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $post->Nama }}</td>
@@ -59,7 +62,7 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
                                 </form>
-                            </td> --}}
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

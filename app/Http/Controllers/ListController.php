@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\Profil;
+use App\Models\toko;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class ListController extends Controller
 {
@@ -14,11 +17,22 @@ class ListController extends Controller
     //     return view('list-product');
     // }
 
-    public function show()
+    public function show(User $user, $id = 1)
     {
-        $list = Product::all();
-        return view('list-product', compact('list'));
+        $user = User::findOrFail($id);
+        $list = Product::where('user_id', $user->id)->get();
+        return view('list-product', compact('list', 'user'));
+        // dd($list);
     }
+
+    public function id2(User $user, $id = 2)
+    {
+        $user = User::findOrFail($id);;
+        $list = Product::where('user_id', $user->id)->get();
+        return view('list-product2', compact('list', 'user'));
+        // dd($list);
+    }
+
 
     public function edit($id)
     {
@@ -57,4 +71,6 @@ class ListController extends Controller
         $list->delete();
         return redirect('list')->with('success', 'Data Berhasil Dihapus');
     }
+
+
 }

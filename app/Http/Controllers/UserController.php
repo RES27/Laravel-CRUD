@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profil;
 use App\Models\toko;
-
-use Illuminate\Support\Facades\DB;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
@@ -16,20 +16,29 @@ class UserController extends Controller
     {
         return view('profil');
     }
-    public function show()
+    public function show($id = 1)
     {
-        // $user = DB::table('user')->get();
-        $user = User::all();
-        return view('profil', compact('user'));
-        // dd($user->all());
-    }
-
-
-
-    public function idnama(){
-        $user = DB::table('product')->where('id', 1)->first();
-        return view('list-product1', compact('user'));
+        $user = User::findOrFail($id);
         // dd($user);
+        $list = Profil::where('user_id', $user->id)->get();
+        $listed = Toko::where('user_id', $user->id)->get();
+        return view('profil', compact('user','list','listed'));
     }
+    public function id($id = 2)
+    {
+        $user = User::findOrFail($id);
+        // dd($user);
+        $list = Profil::where('user_id', $user->id)->get();
+        $listed = Toko::where('user_id', $user->id)->get();
+        return view('profil2', compact('user','list','listed'));
+    }
+
+
+
+    // public function idnama(){
+    //     $user = DB::table('product')->where('id', 1)->first();
+    //     return view('list-product1', compact('user'));
+    //     // dd($user);
+    // }
 
 }

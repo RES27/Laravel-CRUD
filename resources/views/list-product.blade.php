@@ -26,6 +26,9 @@
                 <button type="button" class="btn btn-success" >
                     <a href="{{ route('form') }}" style="text-decoration: none; color: inherit; ">Tambah Product</a>
                 </button>
+                <button type="button" class="btn btn-success" >
+                    <a href="{{ route('profil-id1') }}" style="text-decoration: none; color: inherit; ">profil</a>
+                </button>
             </div>
             <table class="table table-bordered table-striped">
                 <thead>
