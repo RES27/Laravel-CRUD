@@ -48,9 +48,18 @@ class ListController extends Controller
             'harga' => 'required',
             'stok' => 'required',
             'berat' => 'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'kondisi' => 'required',
             'deskripsi' => 'required'
+        ],
+        [
+            'name.required' => 'Nama Produk Wajib diisi.',
+            'harga.required' => 'Harga Wajib diisi.',
+            'stok.required' => 'Stok Wajib diisi.',
+            'berat.required' => 'Berat Wajib diisi.',
+            'gambar.required' => 'Gambar Wajib diisi.',
+            'kondisi.required' => 'Kondisi Wajib diisi.',
+            'deskripsi.required' => 'Deskripsi Wajib diisi.'
         ]);
         $list = Product::find($id);
         $list->Nama = $req->name;
@@ -61,7 +70,7 @@ class ListController extends Controller
         $list->Kondisi = $req->kondisi;
         $list->Deskripsi = $req->deskripsi;
         $list->save();
-        return redirect('list')->with('success', 'Data Berhasil Ubah');
+        return redirect('list-product')->with('success', 'Data Berhasil Ubah');
         // dd($list->all());
     }
 
