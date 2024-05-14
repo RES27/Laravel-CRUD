@@ -44,6 +44,12 @@ class UserController extends Controller
         }
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'anda berhasil logout');
+    }
+
     public function register()
     {
         return view('auth.registrasi');
@@ -98,7 +104,12 @@ class UserController extends Controller
         if (!$user) {
             return redirect()->route('login');
         }
+        if ($user->hasRole('admin')) {
+            return view('layout_admin.index', compact('user'));
+        }else{
+            return view('layout_user.index', compact('user'));
+        }
 
-        return view('layout_user.index', compact('user'));
+
     }
 }
